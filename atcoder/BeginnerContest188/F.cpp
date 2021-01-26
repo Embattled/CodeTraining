@@ -17,7 +17,6 @@ using namespace std;
 
 // int main(int argc, char const *argv[])
 
-
 typedef long long int64;
 typedef pair<int64, int64> ii;
 map<ii, int64> cache;
