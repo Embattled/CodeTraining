@@ -34,7 +34,6 @@ int main()
             maxSum=max(maxSum,(i-j+1)*minO);
             if((i+1)*minO<maxSum)break;
         }
-        // cout<<maxSum<<endl;
     }
     cout<<maxSum<<endl;
     

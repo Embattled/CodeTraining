@@ -19,13 +19,14 @@ int main()
     int n;
     int x;
     cin >> n >> x;
-    // vector<pair<int,int>> data;
 
+    // 简单的数据不要用浮点数
+    // 容易导致某些测试例错误
     x *= 100;
     int nowal = 0;
     int drunk = -1;
     int getVal = true;
-    // cout<<n<<" "<<x<<endl;
+    
     for (int i = 0; i < n; i++)
     {
         int v, p;
