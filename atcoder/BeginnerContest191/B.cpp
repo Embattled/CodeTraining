@@ -16,26 +16,26 @@ using namespace std;
 
 int main()
 {
-    long long N;
-    cin >> N;
+    int n,x;
+    cin>>n>>x;
 
-    N *= 2;
-
-    long long ans = 0;
-
-    vector<long long> d;
-
-    for (long long i = 1; i*i<N; i++)
+    vector<int> d;
+    for (int i = 0; i < n; i++)
     {
-        if (N%i==0)
-        {
-            long long div=N/i;
-            if ((i^div)&1)
-            {
-                ans+=2;
-            }
+        int a;
+        cin>>a;
+        if(a!=x){
+            d.push_back(a);
         }
     }
-    cout << ans << endl;
+    for (int i = 0 ; i < d.size(); i++)
+    {
+        cout<<d[i];
+        if(i!=d.size()-1){
+            cout<<" ";
+        }
+    }
+    cout<<endl;
+    
     return 0;
 }

@@ -17,6 +17,9 @@ using namespace std;
 
 int N,M,K;
 int A[11];
+
+// 空间留足够
+// n和m 都是 1e5
 double da[2<<17],db[2<<17];
 bool out[1<<17];
 main()
@@ -27,6 +30,8 @@ main()
 		cin>>A[i];
 		out[A[i]]=true;
 	}
+
+	// sa sb 起始是0
 	double sa=0,sb=0;
 
     // i >= 0
@@ -37,15 +42,16 @@ main()
 		else
 		{
             // da 是 sa/M +1
-            // 从N点 到达该点的期望步数
+            // da 是 从 N点 到达该点的平均步数
             // da[N-1] = 1
+			// sa 是当前步数
 			da[i]=sa/M+1;
 
             // db 是 sb/M
             // db[N-1] = 0
 			db[i]=sb/M;
 		}
-        // sa加上 当前 da
+        // sa加上 到达当前点的期望步数
 		sa+=da[i];
 
         // sb加上 当前 db
@@ -61,9 +67,14 @@ main()
 
 
 	double ans;
+	// 如果没有归零
+	// 答案是 da, 说明 da 是正常的期望
 	if(K==0)ans=da[0];
+	// db[0]<1-1e-8 说明终点可达
 	else if(db[0]<1-1e-8)
 	{
+		// db[0] 是回到起点的概率
+		// 
 		ans=da[0]/(1-db[0]);
 	}
 	else

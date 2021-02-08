@@ -10,7 +10,7 @@
 #include <climits>
 #include <algorithm>
 #include <cmath>
-
+#include <cstring>
 #include <iostream>
 using namespace std;
 
