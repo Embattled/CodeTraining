@@ -14,6 +14,14 @@
 #include <iostream>
 using namespace std;
 
+typedef long long ll;
+typedef unsigned long long ull;
+ 
+#define mp make_pair
+#define ft first
+#define sd second
+
+
 int main()
 {
     cin >> n >> x >> y;

@@ -80,7 +80,7 @@ int main()
     // dp
     vector<vector<int>> dp(1<<k,vector<int>(k,INT_MAX));
 
-    // dp的初始状态， 只达成了一个宝石并且该宝石在末尾
+    // dp的初始状态， 只达成了一个宝石
     for (int i = 0; i < k; i++)
     {
         dp[1<<i][i]=1;
