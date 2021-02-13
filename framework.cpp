@@ -16,10 +16,11 @@ using namespace std;
 
 typedef long long ll;
 typedef unsigned long long ull;
+typedef long double ld;
  
 #define mp make_pair
-#define ft first
-#define sd second
+#define fr first
+#define sc second
 
 
 int main()
