@@ -12,6 +12,8 @@
 #include <cmath>
 #include <cstring>
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 typedef long long ll;
@@ -23,9 +25,15 @@ typedef long double ld;
 #define sc second
 
 
-int main()
+int main(int argc, char const *argv[])
 {
-    cin >> n >> x >> y;
+    ifstream i("input.txt");
+
+    int a,b;
+    i>>a>>b;
+
+    fstream f("output.txt",ios::out);
+    f<<a+b<<endl;
 
     return 0;
 }
