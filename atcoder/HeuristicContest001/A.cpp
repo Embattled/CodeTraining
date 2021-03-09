@@ -12,6 +12,8 @@
 #include <cmath>
 #include <cstring>
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 typedef long long ll;
@@ -23,13 +25,15 @@ typedef long double ld;
 #define sc second
 
 
-int main()
+int main(int argc, char const *argv[])
 {
-    double a,b;
-    cin >> a >> b;
+    int ncompany=0;
+    cin>>ncompany;
 
-    cout<< ((a-b)*100)/a<<endl;
+    for (int i = 0; i < ncompany; i++)
+    {
+        
+    }
     
-
     return 0;
 }
