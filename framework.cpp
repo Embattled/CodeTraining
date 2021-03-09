@@ -31,17 +31,15 @@ typedef vector<ll> vl;
 #define sc second
 
 #define show(x) cerr << "LINE" << __LINE__ << " : " << #x << " = " << (x) << endl
-
+#define rep(s, i, n) for (int(i) = (s); (i) < (n); (i)++)
+#define repe(s, i, n) for (int(i) = (s); (i) <= (n); (i)++)
+#define rrep(s, i, n) for (int(i) = (s); (i) > (n); (i)--)
+#define rrepe(s, i, n) for (int(i) = (s); (i) >= (n); (i)--)
 
 int main(int argc, char const *argv[])
 {
-    ifstream i("input.txt");
+    int x,y,a,b,n,m,k,j;
 
-    int a,b;
-    i>>a>>b;
-
-    fstream f("output.txt",ios::out);
-    f<<a+b<<endl;
 
     return 0;
 }
