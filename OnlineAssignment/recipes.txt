@@ -1,0 +1,6 @@
+egg toast: egg bread
+french toast: egg milk bread
+fried egg: egg
+warm milk: milk
+ommlet: egg milk
+toast: bread
