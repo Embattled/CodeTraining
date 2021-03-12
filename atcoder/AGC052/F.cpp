@@ -4,6 +4,7 @@ using namespace std;
 const int N = 200005, M = 998244353;
 vector<int> v[N];
 int dp[N][2][2], g[2][2], dp2[N][2][2][2], g2[2][2][2], n, x, y;
+
 void dfs(int x, int y)
 {
     dp[x][0][0] = dp[x][1][1] = 1;
