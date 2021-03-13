@@ -38,8 +38,9 @@ typedef vector<ll> vl;
 
 int main(int argc, char const *argv[])
 {
-    int x,y,a,b,n,m,k,j;
+    int n;
+    cin>>n;
 
-
+    
     return 0;
 }
