@@ -35,6 +35,7 @@ typedef vector<ll> vl;
 #define repe(s, i, n) for (int(i) = (s); (i) <= (n); (i)++)
 #define rrep(s, i, n) for (int(i) = (s); (i) > (n); (i)--)
 #define rrepe(s, i, n) for (int(i) = (s); (i) >= (n); (i)--)
+#define allof(a) (a).begin(), (a).end()
 
 int main(int argc, char const *argv[])
 {
