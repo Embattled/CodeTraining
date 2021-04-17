@@ -23,6 +23,7 @@ typedef pair<int,int> pii;
 typedef pair<ll,int> pli;
 typedef pair<int,ll> pil;
 typedef pair<ll,ll> pll;
+typedef pair<ull,ull> pull;
 typedef vector<int> vi;
 typedef vector<ll> vl;
  
