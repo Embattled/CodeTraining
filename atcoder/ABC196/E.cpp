@@ -19,13 +19,13 @@ using namespace std;
 
 typedef long long ll;
 typedef unsigned long long ull;
-typedef pair<int,int> pii;
-typedef pair<ll,int> pli;
-typedef pair<int,ll> pil;
-typedef pair<ll,ll> pll;
+typedef pair<int, int> pii;
+typedef pair<ll, int> pli;
+typedef pair<int, ll> pil;
+typedef pair<ll, ll> pll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
- 
+
 #define mp make_pair
 #define fr first
 #define sc second
@@ -37,65 +37,107 @@ typedef vector<ll> vl;
 #define rrepe(s, i, n) for (int(i) = (s); (i) >= (n); (i)--)
 #define allof(a) (a).begin(), (a).end()
 
-map<int,pair<bool,ll>> data;
+map<int, pair<bool, ll>> mapdata;
 int n;
 
-
 // nowv = now range lowest  value
-void cal(int i,int start,ll nowv,ll addv,vl &a,vl &t,bool sv){
-    if(i==n){
-        if(sv)
-            data[start]=mp(sv,nowv+addv);
+void cal(int i, int start, ll nowv, ll addv, vl &a, vl &t, bool sv)
+{
+    if (i == n)
+    {
+        if (sv)
+            mapdata[start] = mp(sv, nowv);
         else
-            data[start]=mp(sv,addv);
+            mapdata[start] = mp(sv, addv);
+        return;
     }
 
-    if(t[i]==1){
-        addv+=a[i];
-        cal(i+1,start,nowv,addv,a,t,false||sv);
+    if (sv)
+    {
+        if (t[i] == 1)
+        {
+            nowv += a[i];
+            cal(i + 1, start, nowv, 0, a, t, sv);
+        }
+        else if (t[i] == 2)
+        {
+            cal(i + 1, start, max(nowv, a[i]), 0, a, t, sv);
+        }
+        else
+        {
+            cal(i + 1, start, min(nowv, a[i]), 0, a, t, sv);
+        }
     }
-    else if(t[i]==2){
-        if(nowv+addv>=a[i]){
-            cal(i+1,start,nowv,addv,a,t,sv||false);
+    else
+    {
+        if (t[i] == 1)
+        {
+            addv += a[i];
+            cal(i + 1, start, nowv, addv, a, t, false);
         }
-        else{
-            cal(i+1,start,a[i],0,a,t,true);
+        else if (t[i] == 2)
+        {
+            if (nowv + addv >= a[i])
+            {
+                cal(i + 1, start, nowv, addv, a, t, false);
+            }
+            else
+            {
+                cal(i + 1, start, a[i], 0, a, t, true);
+                cal(i + 1, a[i] - addv, a[i] - addv, addv, a, t, false);
+            }
+        }
+        else
+        {
+            if (nowv + addv >= a[i])
+            {
+                cal(i + 1, start, a[i], 0, a, t, true);
+            }
+            else
+            {
+                cal(i + 1, start, nowv, addv, a, t, false);
 
-            cal(i+1,start+(a[i]-(nowv+addv)),a[i]-addv,addv,a,t);
-        }
-    }
-    else{
-        if(nowv+addv>=a[i]){
-            cal(i+1,start,a[i],0,a,t);
-        }
-        else{
-            cal(i+1,start,nowv,addv,a,t);
-
-            cal(i+1,start+(a[i]-(nowv+addv)),a[i],0,a,t);
+                cal(i + 1, a[i] - addv, a[i], 0, a, t, true);
+            }
         }
     }
 }
 
 int main(int argc, char const *argv[])
 {
-    cin>>n;
+    cin >> n;
     vl a(n);
     vl t(n);
-    rep(0,i,n){
-        cin>>a[i]>>t[i];
+    rep(0, i, n)
+    {
+        cin >> a[i] >> t[i];
     }
 
-    cal(0,-1e9,-1e9,0,a,t,false);
+    cal(0, -1e9, -1e9, 0, a, t, false);
 
     int q;
-    cin>>q;
-    vl x(n);
-    rep(0,i,q){
-        cin>>x[i];
+    cin >> q;
 
-
-        ll ans=0;
-        cout<<ans<<endl;
+    for(auto res:mapdata){
+        cout<<res.first<<"  "<<res.second.first<<" "<<res.second.second<<endl;
     }
+
+    rep(0, i, q)
+    {
+        int x;
+        cin >> x;
+
+        auto res = --mapdata.upper_bound(x);
+
+        if (res->second.first)
+        {
+            cout << res->second.second << endl;
+        }
+        else
+        {
+            cout << x + res->second.second << endl;
+        }
+    }
+
     return 0;
 }
