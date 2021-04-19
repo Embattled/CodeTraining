@@ -28,6 +28,7 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
  
 #define mp make_pair
+#define pb push_back
 #define fr first
 #define sc second
 
