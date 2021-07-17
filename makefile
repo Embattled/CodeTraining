@@ -1,3 +1,3 @@
 .PHONY : clean
 clean:
-	rm -rf *.out
+	find . -name "*.out" | xargs rm -f

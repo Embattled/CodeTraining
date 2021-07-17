@@ -1,7 +1,9 @@
 #include <stack>
 #include <queue>
 #include <set>
+#include <array>
 #include <vector>
+#include <deque>
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
@@ -41,9 +43,18 @@ typedef vector<ll> vl;
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    cin>>n;
+    int a[3];
+    rep(0,i,3){
+        cin>>a[i];
+    }
+    int res=0;
 
-    
+    rep(0,i,3){
+        rep(i+1,j,3){
+            res=max(res,a[i]+a[j]);
+        }
+    }
+
+    cout<<res<<endl;
     return 0;
 }
