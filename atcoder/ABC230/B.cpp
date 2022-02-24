@@ -58,13 +58,34 @@ bool check(int x,int y){
     return false;
 }
 
-
+string t="oxx";
+// fsm  o x x
+bool fsm(int init,string s){
+    for(char c:s){
+        if(c==t[init]){   
+            init++;
+            init%=3;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(int argc, char const *argv[])
 {
     int n;
     string s;
-    cin>>n;
+    cin>>s;
+
+    rep(0,i,3){
+        if(fsm(i,s)){
+            cout<<"Yes"<<endl;
+            return 0;
+        }
+    }
+    cout<<"No"<<endl;
 
 
     return 0;

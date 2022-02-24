@@ -62,10 +62,32 @@ bool check(int x,int y){
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    string s;
-    cin>>n;
+    ll n,a,b,p,q,r,s;
+    cin>>n>>a>>b>>p>>q>>r>>s;
 
+    ll l1=max(1-a,1-b);
+    ll r1=min(n-a,n-b);
+
+    ll l2=max(1-a,b-n);
+    ll r2=min(n-a,b-1);
+
+    for(ll i=p;i<=q;i++){
+        for(ll j=r;j<=s;j++){
+            if( (i-a)==(j-b) || (i-a)==(b-j) ){
+                ll k=i-a;
+                if( ((l1<=k)&&(k<=r1))||((l2<=k)&&(k<=r2))){
+                    cout<<"#";
+                }
+                else{
+                    cout<<".";
+                }
+            }
+            else{
+                cout<<".";
+            }
+        }
+        cout<<endl;
+    }
 
     return 0;
 }

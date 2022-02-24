@@ -63,8 +63,8 @@ bool check(int x,int y){
 int main(int argc, char const *argv[])
 {
     int n;
-    string s;
     cin>>n;
+    string s;
 
 
     return 0;

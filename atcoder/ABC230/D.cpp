@@ -59,13 +59,40 @@ bool check(int x,int y){
 }
 
 
+#define SOLVEA
+
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    string s;
-    cin>>n;
+    int n,d;
+    cin>>n>>d;
+    vector<pii> wall(n);
 
+    rep(0,i,n){
+        cin>>wall[i].first>>wall[i].second;
+    }
 
+    int ans=0;
+
+    #ifdef SOLVEA
+    int x=INT_MAX;
+    sort(wall.begin(),wall.end());
+
+    for(int i=n-1;i>=0;i--){
+        auto &[l,r]=wall[i];
+        if(r<x)ans++,x=l-d+1;
+    }
+
+    #else
+
+    int x=INT_MIN;
+    sort(wall.begin(),wall.end(),[](pii &a,pii &b){return a.second<b.second;});
+
+    for(auto& [l,r]:wall){
+        if(x+d-1<l)ans++,x=r;
+    }
+
+    #endif
+    cout<<ans<<endl;
     return 0;
 }

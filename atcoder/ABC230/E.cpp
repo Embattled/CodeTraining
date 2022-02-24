@@ -62,10 +62,18 @@ bool check(int x,int y){
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    string s;
+    ll n,ans=0;
     cin>>n;
+    ll n2=n,i=1;
+    while(i<=n2){
+        ll d=n/i;
+        ans+=d;
 
+        ans+=(n2-max(d,i))*(i-1);
+        n2=max(d,i);
+        i++;
+    }
 
+    cout<<ans<<endl;
     return 0;
 }

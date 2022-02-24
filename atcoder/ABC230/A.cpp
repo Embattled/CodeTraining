@@ -63,9 +63,15 @@ bool check(int x,int y){
 int main(int argc, char const *argv[])
 {
     int n;
-    string s;
     cin>>n;
 
+    
+    if(n<42){
+        printf("AGC%03d\n",n);
+    }
+    else{
+        printf("AGC%03d\n",n+1);
+    }
 
     return 0;
 }
