@@ -64,5 +64,28 @@ int main(int argc, char const *argv[])
     int n;
     cin >> n;
 
+    vl a(n);
+    rep(0,i,n){
+        cin>>a[i];
+    }
+    ll maxv=1e15;
+    vl2d dp1(n,vl(2,maxv));
+    vl2d dp2(n,vl(2,maxv));
+
+    dp1[0][0]=0;
+    dp1[0][1]=maxv;
+    
+    dp2[0][0]=maxv;
+    dp2[0][1]=a[0];
+
+    rep(1,i,n){
+        dp1[i][0]=dp1[i-1][1];
+        dp1[i][1]=min(dp1[i-1][0],dp1[i-1][1])+a[i];
+
+        dp2[i][0]=dp2[i-1][1];
+        dp2[i][1]=min(dp2[i-1][0],dp2[i-1][1])+a[i];
+    }
+    cout<< min(dp1[n-1][1],min(dp2[n-1][0],dp2[n-1][1]))<<endl;;
+
     return 0;
 }

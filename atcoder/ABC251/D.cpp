@@ -61,8 +61,15 @@ bool check(int x, int y)
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    cin >> n;
+    int w;
+    cin >> w;
+    cout<<297<<endl;
+    repe(1,i,99){
+        cout<<i<<" ";
+        cout<<i*100<<" ";
+        cout<<i*10000<<" ";
+    }
+    cout << endl;
 
     return 0;
 }

@@ -21,16 +21,17 @@ using namespace std;
 
 typedef long long ll;
 typedef unsigned long long ull;
-typedef pair<int, int> pii;
-typedef pair<ll, int> pli;
-typedef pair<int, ll> pil;
-typedef pair<ll, ll> pll;
-typedef pair<ull, ull> pull;
+typedef pair<int,int> pii;
+typedef pair<ll,int> pli;
+typedef pair<int,ll> pil;
+typedef pair<ll,ll> pll;
+typedef pair<ull,ull> pull;
+
 
 typedef vector<int> vi;
 typedef vector<vector<int>> vi2d;
 typedef vector<ll> vl;
-typedef vector<vector<ll>> vl2d;
+typedef vector<vector<ll>> vl2d; 
 typedef vector<char> vc;
 typedef vector<vector<char>> vc2d;
 
@@ -46,23 +47,45 @@ typedef vector<vector<char>> vc2d;
 #define rrepe(s, i, n) for (int(i) = (s); (i) >= (n); (i)--)
 #define allof(a) (a).begin(), (a).end()
 
-int mov[] = {1, 0, -1, 0, 1};
-int h, w;
+int mov[]={1,0,-1,0,1};
+int h,w;
 
-const ll mod = 998244353;
-bool check(int x, int y)
-{
-    if (x < 0 || x >= h || y < 0 || y >= w)
-    {
+const ll mod=998244353;
+bool check(int x,int y){
+    if(x<0||x>=h||y<0||y>=w){
         return true;
     }
     return false;
 }
 
+
+
 int main(int argc, char const *argv[])
 {
     int n;
-    cin >> n;
+    cin>>n;
+
+    unordered_map<int,vi> mp;
+    repe(1,i,n){
+        int a;
+        cin>>a;
+        mp[a].pb(i);
+
+    }
+
+    int Q;
+    cin>>Q;
+    
+
+
+    rep(0,q,Q){
+        int l,r,x;
+        cin>>l>>r>>x;
+
+        cout<<upper_bound(allof(mp[x]),r)-lower_bound(allof(mp[x]),l)<<endl;
+
+    }
+
 
     return 0;
 }
